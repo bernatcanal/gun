@@ -175,7 +175,7 @@
 			}});
 			if(arg instanceof Function){
 				var be = {
-					off: onto.off || 
+					off: onto.off ||
 					(onto.off = function(){
 						if(this.next === onto._.next){ return !0 }
 						if(this === this.the.last){
@@ -258,7 +258,7 @@
 			if(v === Infinity){ return false } // we want this to be, but JSON does not support it, sad face.
 			if(text_is(v) // by "text" we mean strings.
 			|| bi_is(v) // by "binary" we mean boolean.
-			|| num_is(v)){ // by "number" we mean integers or decimals. 
+			|| num_is(v)){ // by "number" we mean integers or decimals.
 				return true; // simple values are valid.
 			}
 			return Val.rel.is(v) || false; // is the value a soul relation? Then it is valid and return it. If not, everything else remaining is an invalid data type. Custom extensions can be built on top of these primitives to support other types.
@@ -379,10 +379,10 @@
 		State.ify = function(n, f, s, v, soul){ // put a field's state on a node.
 			if(!n || !n[N_]){ // reject if it is not node-like.
 				if(!soul){ // unless they passed a soul
-					return; 
+					return;
 				}
 				n = Node.soul.ify(n, soul); // then make it so!
-			} 
+			}
 			var tmp = obj_as(n[N_], State._); // grab the states data.
 			if(u !== f && f !== N_){
 				if(num_is(s)){
@@ -804,7 +804,7 @@
 					if(!obj_is(at.opt.peers)){ at.opt.peers = {}}
 					at.opt.peers = obj_to(tmp, at.opt.peers);
 				}
-				at.opt.uuid = at.opt.uuid || function(){ 
+				at.opt.uuid = at.opt.uuid || function(){
 					return state().toString(36).replace('.','') + text_rand(12);
 				}
 				at.opt.peers = at.opt.peers || {};
@@ -825,15 +825,15 @@
 		Gun.log = function(){ return (!Gun.log.off && console.log.apply(console, arguments)), [].slice.call(arguments).join(' ') }
 		Gun.log.once = function(w,s,o){ return (o = Gun.log.once)[w] = o[w] || 0, o[w]++ || Gun.log(s) }
 
-		;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
-		Gun.log.once("welcome", "Hello wonderful person! :) Thanks for using GUN, feel free to ask for help on https://gitter.im/amark/gun and ask StackOverflow questions tagged with 'gun'!");
-		;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
-		
+		//;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
+		//Gun.log.once("welcome", "Hello wonderful person! :) Thanks for using GUN, feel free to ask for help on https://gitter.im/amark/gun and ask StackOverflow questions tagged with 'gun'!");
+		//;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
+
 		if(typeof window !== "undefined"){ window.Gun = Gun }
 		if(typeof common !== "undefined"){ common.exports = Gun }
 		module.exports = Gun;
 
-		Gun.log.once("0.8", "0.8 WARNING! Breaking changes, test that your app works before upgrading! The adapter interface has been upgraded (non-default storage and transport layers probably won't work). Also, `.path()` and `.not()` are outside core and now in 'lib/'.");
+		//Gun.log.once("0.8", "0.8 WARNING! Breaking changes, test that your app works before upgrading! The adapter interface has been upgraded (non-default storage and transport layers probably won't work). Also, `.path()` and `.not()` are outside core and now in 'lib/'.");
 	})(require, './root');
 
 	;require(function(module){
@@ -1021,7 +1021,7 @@
 			var tmp = (at.root.get(rel)._);
 			if(at.has){
 				from = tmp;
-			} else 
+			} else
 			if(from.has){
 				relate(from, msg, from, rel);
 			}
@@ -1178,7 +1178,7 @@
 			var cat = back._, next = cat.next, gun = back.chain(), at = gun._;
 			if(!next){ next = cat.next = {} }
 			next[at.get = key] = gun;
-			if(cat.root === back){ 
+			if(cat.root === back){
 				at.soul = key;
 			} else
 			if(cat.soul || cat.field){  // TODO: Convert field to has!
@@ -1636,7 +1636,7 @@
 			opt.file = opt.file || opt.prefix || 'gun/'; // support old option name.
 			var graph = root.graph, acks = {}, count = 0, to;
 			var disk = Gun.obj.ify(store.getItem(opt.file)) || {};
-			
+
 			root.on('put', function(at){
 				this.to.next(at);
 				Gun.graph.is(at.put, null, map);
