@@ -159,7 +159,7 @@ Gun._ = { // some reserved key words, these are not the only ones.
 			if(!obj_is(at.opt.peers)){ at.opt.peers = {}}
 			at.opt.peers = obj_to(tmp, at.opt.peers);
 		}
-		at.opt.uuid = at.opt.uuid || function(){ 
+		at.opt.uuid = at.opt.uuid || function(){
 			return state().toString(36).replace('.','') + text_rand(12);
 		}
 		at.opt.peers = at.opt.peers || {};
@@ -180,13 +180,12 @@ console.debug = function(i, s){ return (console.debug.i && i === console.debug.i
 Gun.log = function(){ return (!Gun.log.off && console.log.apply(console, arguments)), [].slice.call(arguments).join(' ') }
 Gun.log.once = function(w,s,o){ return (o = Gun.log.once)[w] = o[w] || 0, o[w]++ || Gun.log(s) }
 
-;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
-Gun.log.once("welcome", "Hello wonderful person! :) Thanks for using GUN, feel free to ask for help on https://gitter.im/amark/gun and ask StackOverflow questions tagged with 'gun'!");
-;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
+//;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
+//Gun.log.once("welcome", "Hello wonderful person! :) Thanks for using GUN, feel free to ask for help on https://gitter.im/amark/gun and ask StackOverflow questions tagged with 'gun'!");
+//;"Please do not remove these messages unless you are paying for a monthly sponsorship, thanks!";
 
 if(typeof window !== "undefined"){ window.Gun = Gun }
 if(typeof common !== "undefined"){ common.exports = Gun }
 module.exports = Gun;
 
-Gun.log.once("0.8", "0.8 WARNING! Breaking changes, test that your app works before upgrading! The adapter interface has been upgraded (non-default storage and transport layers probably won't work). Also, `.path()` and `.not()` are outside core and now in 'lib/'.");
-	
+//Gun.log.once("0.8", "0.8 WARNING! Breaking changes, test that your app works before upgrading! The adapter interface has been upgraded (non-default storage and transport layers probably won't work). Also, `.path()` and `.not()` are outside core and now in 'lib/'.");
